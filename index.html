@@ -1,122 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Talshyn | Profile</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-
-    <header>
-        <h1>Talshyn Saparkhan</h1>
-        <p>IT Management Student</p>
-    </header>
-
-    <hr>
-
-    <!-- Week 2: карточка профиля -->
-    <div class="profile-card" id="profileCard">
-        <div class="profile-top">
-            <div class="avatar">T</div>
-            <div>
-                <h2>Talshyn</h2>
-                <p>
-                    I am an IT Management student interested in technology,
-                    web development, and learning new digital skills.
-                </p>
-            </div>
-        </div>
-
-        <p>
-            <a href="mailto:t_saparkhan@kbtu.kz">Email</a> |
-            <a href="https://github.com/" target="_blank">GitHub</a>
-        </p>
-
-        <button id="likeButton" type="button">♡ Like</button>
-        <p id="likeMessage">You haven't liked this card yet.</p>
-    </div>
-
-    <hr>
-
-    <!-- Week 1: About -->
-    <h2>About</h2>
-    <p>
-        I am an IT Management student. I am interested in technology and
-        web development. I want to learn HTML and improve my web
-        development skills in this course.
-    </p>
-    <img src="/week-01/photo.jpg" alt="My photo" width="300">
-
-    <hr>
-
-    <!-- Week 1: Skills -->
-    <h2>Skills</h2>
-    <ul>
-        <li>HTML</li>
-        <li>Python</li>
-        <li>AWS</li>
-        <li>Jupyter Notebook</li>
-    </ul>
-
-    <hr>
-
-    <!-- Week 1: Goals -->
-    <h2>Goals</h2>
-    <table border="1" cellpadding="8">
-        <tr>
-            <th>Skill</th>
-            <th>Level</th>
-        </tr>
-        <tr>
-            <td>HTML</td>
-            <td>Intermediate</td>
-        </tr>
-        <tr>
-            <td>Python</td>
-            <td>Intermediate</td>
-        </tr>
-        <tr>
-            <td>AWS</td>
-            <td>Intermediate</td>
-        </tr>
-        <tr>
-            <td>Jupyter Notebook</td>
-            <td>Intermediate</td>
-        </tr>
-    </table>
-
-    <hr>
-
-    <!-- Week 1: Contact -->
-    <h2>Contact</h2>
-    <p>
-        <a href="mailto:t_saparkhan@kbtu.kz">t_saparkhan@kbtu.kz</a>
-    </p>
-
-    <form>
-        <p>
-            <label for="name">Name</label><br>
-            <input type="text" id="name">
-        </p>
-        <p>
-            <label for="email">Email</label><br>
-            <input type="email" id="email">
-        </p>
-        <p>
-            <label for="message">Message</label><br>
-            <textarea id="message" rows="4"></textarea>
-        </p>
-        <button type="submit">Submit</button>
-    </form>
-
-    <hr>
-
-    <footer>
-        <p>© 2026 Talshyn Saparkhan</p>
-    </footer>
-
-    <script type="module" src="/src/main.js"></script>
-</body>
+    <title>iwamad-practice</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
