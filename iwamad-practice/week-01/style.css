@@ -1,0 +1,233 @@
+/* ===== Базовые стили (общие для Week 1 и Week 2) ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    background: #f4f4f5;
+    color: #18181b;
+    line-height: 1.6;
+}
+
+/* ===== Верхняя навигация (общая) ===== */
+.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    background: white;
+    border-bottom: 1px solid #e4e4e7;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #52525b;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+.nav-link:hover {
+    background: #f4f4f5;
+    color: #18181b;
+}
+
+.nav-link.active {
+    background: #18181b;
+    color: white;
+}
+
+/* ===== Заголовок страницы ===== */
+.page-header {
+    text-align: center;
+    padding: 40px 20px 20px;
+}
+
+.page-header h1 {
+    margin: 0 0 8px;
+    font-size: 36px;
+}
+
+.page-header p {
+    margin: 0;
+    color: #71717a;
+}
+
+/* ===== Навигация по секциям ===== */
+.section-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.section-nav a {
+    text-decoration: none;
+    color: #18181b;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.section-nav a:hover {
+    background: #e4e4e7;
+}
+
+/* ===== Основной контент ===== */
+.page-main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e4e4e7;
+}
+
+.section-card h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #18181b;
+}
+
+/* Картинка профиля */
+.profile-photo {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    margin-top: 15px;
+    display: block;
+}
+
+/* Список навыков */
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-list li {
+    background: #f4f4f5;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    color: #18181b;
+}
+
+/* Таблица */
+.goals-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.goals-table th,
+.goals-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e4e4e7;
+}
+
+.goals-table th {
+    background: #f4f4f5;
+    font-weight: 600;
+}
+
+/* Форма */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.contact-form label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px 14px;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #18181b;
+}
+
+.contact-form button {
+    margin-top: 10px;
+    padding: 12px 20px;
+    background: #18181b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.contact-form button:hover {
+    opacity: 0.85;
+}
+
+.email-link {
+    color: #18181b;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid #ec4899;
+    padding-bottom: 2px;
+}
+
+.page-footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: #71717a;
+    font-size: 14px;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .top-nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .section-nav {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .page-header h1 {
+        font-size: 28px;
+    }
+
+    .section-card {
+        padding: 20px;
+    }
+}
