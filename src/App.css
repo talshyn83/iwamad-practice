@@ -207,54 +207,6 @@ button:hover {
   margin: 0.75rem 0 0;
 }
 
-.about-section,
-.goals-section,
-.contact-section {
-  margin-top: 2.5rem;
-  text-align: left;
-}
-
-.about-section h2,
-.goals-section h2,
-.contact-section h2 {
-  font-size: 1.2rem;
-  color: #ccc;
-  border-bottom: 1px solid #333;
-  padding-bottom: 0.5rem;
-}
-
-.goals-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 1rem;
-}
-
-.goals-table th,
-.goals-table td {
-  border: 1px solid #333;
-  padding: 0.5rem 0.75rem;
-  text-align: left;
-}
-
-.goals-table th {
-  background: #2a2a2a;
-}
-
-.contact-section a {
-  color: #7cb7ff;
-}
-
-input,
-textarea {
-  background: #2a2a2a;
-  border: 1px solid #444;
-  color: #fff;
-  padding: 0.5rem;
-  border-radius: 6px;
-  width: 100%;
-  font-family: inherit;
-}
-
 .footer {
   margin-top: 3rem;
   color: #666;
