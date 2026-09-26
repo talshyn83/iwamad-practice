@@ -4,7 +4,7 @@ type FooterProps = {
 
 function Footer({ text }: FooterProps) {
   return (
-    <footer>
+    <footer className="footer">
       <p>{text}</p>
     </footer>
   );

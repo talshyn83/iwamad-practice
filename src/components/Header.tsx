@@ -1,13 +1,13 @@
 type HeaderProps = {
   title: string;
-  subtitle: string;
+  subtitle?: string;
 };
 
 function Header({ title, subtitle }: HeaderProps) {
   return (
-    <header>
+    <header className="header">
       <h1>{title}</h1>
-      <p>{subtitle}</p>
+      {subtitle && <p className="subtitle">{subtitle}</p>}
     </header>
   );
 }

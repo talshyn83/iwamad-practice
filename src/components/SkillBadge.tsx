@@ -8,7 +8,7 @@ type SkillBadgeProps = {
 };
 
 function SkillBadge({ skill }: SkillBadgeProps) {
-  return <li>{skill.label}</li>;
+  return <li className="skill-badge">{skill.label}</li>;
 }
 
 export default SkillBadge;

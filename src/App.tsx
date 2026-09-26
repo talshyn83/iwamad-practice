@@ -1,7 +1,6 @@
 import Header from "./components/Header";
 import ProfileCard from "./components/ProfileCard";
 import Footer from "./components/Footer";
-import SkillBadge from "./components/SkillBadge";
 import "./App.css";
 
 type Skill = {
@@ -18,51 +17,30 @@ const skills: Skill[] = [
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Header title="Talshyn Saparkhan" subtitle="IT Management Student" />
-
-      <hr />
 
       <ProfileCard
         name="Talshyn"
         role="IT Management Student"
         bio="I am an IT Management student interested in technology, web development, and learning new digital skills."
         email="t_saparkhan@kbtu.kz"
-        github="https://github.com/"
+        github="https://github.com/talshyn83"
+        skills={skills}
       />
 
-      <hr />
-
-      <section>
+      <section className="about-section">
         <h2>About</h2>
         <p>
           I am an IT Management student. I am interested in technology and web
           development. I want to learn HTML and improve my web development
           skills in this course.
         </p>
-        <img src="/week-01/photo.jpg" alt="My photo" width="300" />
       </section>
 
-      <hr />
-
-      <section>
-        <h2>Skills</h2>
-        {skills.length > 0 ? (
-          <ul>
-            {skills.map((skill) => (
-              <SkillBadge key={skill.id} skill={skill} />
-            ))}
-          </ul>
-        ) : (
-          <p>No skills added yet.</p>
-        )}
-      </section>
-
-      <hr />
-
-      <section>
+      <section className="goals-section">
         <h2>Goals</h2>
-        <table border={1} cellPadding={8}>
+        <table className="goals-table">
           <thead>
             <tr>
               <th>Skill</th>
@@ -90,9 +68,7 @@ function App() {
         </table>
       </section>
 
-      <hr />
-
-      <section>
+      <section className="contact-section">
         <h2>Contact</h2>
         <p>
           <a href="mailto:t_saparkhan@kbtu.kz">t_saparkhan@kbtu.kz</a>
@@ -118,7 +94,7 @@ function App() {
       </section>
 
       <Footer text="© 2026 Talshyn Saparkhan — IWaMAD" />
-    </>
+    </div>
   );
 }
 
