@@ -1,10 +1,5 @@
 import { useState } from "react";
-import SkillBadge from "./SkillBadge";
-
-type Skill = {
-  id: number;
-  label: string;
-};
+import SkillBadge, { type Skill } from "./SkillBadge";
 
 type ProfileCardProps = {
   name: string;
@@ -24,6 +19,9 @@ function ProfileCard({
   skills,
 }: ProfileCardProps) {
   const [liked, setLiked] = useState<boolean>(false);
+  const [selectedSkillId, setSelectedSkillId] = useState<number | null>(null);
+
+  const selectedSkill = skills.find((s) => s.id === selectedSkillId);
 
   return (
     <div className={liked ? "profile-card liked" : "profile-card"}>
@@ -37,11 +35,24 @@ function ProfileCard({
       {skills.length > 0 ? (
         <ul className="skills-list">
           {skills.map((skill) => (
-            <SkillBadge key={skill.id} skill={skill} />
+            <SkillBadge
+              key={skill.id}
+              skill={skill}
+              isActive={skill.id === selectedSkillId}
+              onClick={() =>
+                setSelectedSkillId(skill.id === selectedSkillId ? null : skill.id)
+              }
+            />
           ))}
         </ul>
       ) : (
         <p className="empty-message">No skills added yet.</p>
+      )}
+
+      {selectedSkill && (
+        <p className="skill-level">
+          <strong>{selectedSkill.label}</strong> — {selectedSkill.level}
+        </p>
       )}
 
       <p className="links">
@@ -60,6 +71,10 @@ function ProfileCard({
         {liked
           ? "You liked this profile card!"
           : "You haven't liked this card yet."}
+      </p>
+
+      <p className="card-email">
+        <a href={`mailto:${email}`}>{email}</a>
       </p>
     </div>
   );

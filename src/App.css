@@ -106,6 +106,63 @@ body {
   border-radius: 999px;
   font-size: 0.85rem;
   border: 1px solid #444;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  font-family: inherit;
+}
+
+.skill-badge:hover {
+  background: #3a3a3a;
+  border-color: #666;
+}
+
+.skill-badge.active {
+  background: #7cb7ff;
+  color: #111;
+  border-color: #7cb7ff;
+}
+
+.skill-level {
+  margin: 0.5rem 0 1rem;
+  padding: 0.5rem 1rem;
+  background: #2a2a2a;
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+.skill-level strong {
+  color: #7cb7ff;
+}
+
+.links {
+  margin: 1rem 0;
+}
+
+.links a {
+  color: #7cb7ff;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.card-email {
+  margin: 1.5rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
+  font-size: 0.85rem;
+}
+
+.card-email a {
+  color: #7cb7ff;
+  text-decoration: none;
+}
+
+.card-email a:hover {
+  text-decoration: underline;
 }
 
 .empty-message {

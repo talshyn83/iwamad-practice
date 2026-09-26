@@ -1,18 +1,14 @@
 import Header from "./components/Header";
 import ProfileCard from "./components/ProfileCard";
 import Footer from "./components/Footer";
+import type { Skill } from "./components/SkillBadge";
 import "./App.css";
 
-type Skill = {
-  id: number;
-  label: string;
-};
-
 const skills: Skill[] = [
-  { id: 1, label: "HTML" },
-  { id: 2, label: "Python" },
-  { id: 3, label: "AWS" },
-  { id: 4, label: "Jupyter Notebook" },
+  { id: 1, label: "HTML", level: "Intermediate" },
+  { id: 2, label: "Python", level: "Intermediate" },
+  { id: 3, label: "AWS", level: "Intermediate" },
+  { id: 4, label: "Jupyter Notebook", level: "Intermediate" },
 ];
 
 function App() {
@@ -48,22 +44,12 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>HTML</td>
-              <td>Intermediate</td>
-            </tr>
-            <tr>
-              <td>Python</td>
-              <td>Intermediate</td>
-            </tr>
-            <tr>
-              <td>AWS</td>
-              <td>Intermediate</td>
-            </tr>
-            <tr>
-              <td>Jupyter Notebook</td>
-              <td>Intermediate</td>
-            </tr>
+            {skills.map((s) => (
+              <tr key={s.id}>
+                <td>{s.label}</td>
+                <td>{s.level}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </section>
