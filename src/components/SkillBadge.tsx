@@ -10,19 +10,22 @@ type SkillBadgeProps = {
   onClick: () => void;
 };
 
-function SkillBadge({ skill, isActive, onClick }: SkillBadgeProps) {
+export default function SkillBadge({ skill, isActive, onClick }: SkillBadgeProps) {
   return (
-    <li>
-      <button
-        type="button"
-        className={isActive ? "skill-badge active" : "skill-badge"}
-        onClick={onClick}
-      >
-        {skill.label}
-      </button>
-    </li>
+    <div 
+      onClick={onClick}
+      style={{ 
+        padding: '8px 16px', 
+        border: isActive ? '2px solid #646cff' : '1px solid white', 
+        borderRadius: '20px', 
+        display: 'inline-block',
+        cursor: 'pointer',
+        backgroundColor: isActive ? 'rgba(100, 108, 255, 0.1)' : 'transparent'
+      }}
+    >
+      {skill.label} — {skill.level}
+    </div>
   );
 }
 
 export type { Skill };
-export default SkillBadge;

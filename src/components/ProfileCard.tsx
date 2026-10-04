@@ -1,5 +1,5 @@
-import { useState } from "react";
 import SkillBadge, { type Skill } from "./SkillBadge";
+import LikeButton from './LikeButton';
 
 type ProfileCardProps = {
   name: string;
@@ -18,13 +18,8 @@ function ProfileCard({
   github,
   skills,
 }: ProfileCardProps) {
-  const [liked, setLiked] = useState<boolean>(false);
-  const [selectedSkillId, setSelectedSkillId] = useState<number | null>(null);
-
-  const selectedSkill = skills.find((s) => s.id === selectedSkillId);
-
   return (
-    <div className={liked ? "profile-card liked" : "profile-card"}>
+    <div className="profile-card">
       <div className="profile-top">
         <div className="avatar">{name[0]}</div>
         <h2 className="profile-name">{name}</h2>
@@ -38,21 +33,13 @@ function ProfileCard({
             <SkillBadge
               key={skill.id}
               skill={skill}
-              isActive={skill.id === selectedSkillId}
-              onClick={() =>
-                setSelectedSkillId(skill.id === selectedSkillId ? null : skill.id)
-              }
+              isActive={false}
+              onClick={() => {}}
             />
           ))}
         </ul>
       ) : (
         <p className="empty-message">No skills added yet.</p>
-      )}
-
-      {selectedSkill && (
-        <p className="skill-level">
-          <strong>{selectedSkill.label}</strong> — {selectedSkill.level}
-        </p>
       )}
 
       <p className="links">
@@ -63,15 +50,7 @@ function ProfileCard({
         </a>
       </p>
 
-      <button type="button" onClick={() => setLiked(!liked)}>
-        {liked ? "♥ Liked" : "♡ Like"}
-      </button>
-
-      <p className="like-text">
-        {liked
-          ? "You liked this profile card!"
-          : "You haven't liked this card yet."}
-      </p>
+      <LikeButton />
 
       <p className="card-email">
         <a href={`mailto:${email}`}>{email}</a>
