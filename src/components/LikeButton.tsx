@@ -1,11 +1,17 @@
-import { useLikes } from '../context/LikesContext';
+import { useContext } from 'react'
+import { Button } from './ui/Button'
+import { LikesContext } from '../context/LikesContext'
 
-export default function LikeButton() {
-  const { likes, addLike } = useLikes();
-  
+export const LikeButton = () => {
+  const { likes, setLikes } = useContext(LikesContext)
+
   return (
-    <button onClick={addLike}>
+    <Button
+      variant="primary"
+      onClick={() => setLikes(likes + 1)}
+      aria-label={`Like (${likes} likes)`}
+    >
       Like ({likes})
-    </button>
-  );
+    </Button>
+  )
 }

@@ -1,24 +1,29 @@
-import { createContext, useContext, useState, type ReactNode } from 'react';
+import { createContext, useState, useContext, type ReactNode } from 'react'
 
-type LikesContextValue = { likes: number; addLike: () => void };
-
-const LikesContext = createContext<LikesContextValue | undefined>(undefined);
-
-export function LikesProvider({ children }: { children: ReactNode }) {
-  const [likes, setLikes] = useState(0);
-  const addLike = () => setLikes((prev) => prev + 1);
-
-  return (
-    <LikesContext.Provider value={{ likes, addLike }}>
-      {children}
-    </LikesContext.Provider>
-  );
+// Описываем типы для TypeScript
+interface LikesContextType {
+  likes: number
+  setLikes: (likes: number) => void
 }
 
-export function useLikes() {
-  const context = useContext(LikesContext);
-  if (!context) {
-    throw new Error('useLikes must be used within a LikesProvider');
-  }
-  return context;
+// Создаем и экспортируем контекст
+export const LikesContext = createContext<LikesContextType>({
+  likes: 0,
+  setLikes: () => {},
+})
+
+// Создаем провайдер
+export const LikesProvider = ({ children }: { children: ReactNode }) => {
+  const [likes, setLikes] = useState(0)
+
+  return (
+    <LikesContext.Provider value={{ likes, setLikes }}>
+      {children}
+    </LikesContext.Provider>
+  )
+}
+
+// Создаем и экспортируем хук useLikes, чтобы Layout.tsx не выдавал ошибку
+export const useLikes = () => {
+  return useContext(LikesContext)
 }

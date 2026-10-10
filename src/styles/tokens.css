@@ -1,0 +1,11 @@
+:root {
+  /* Цвета (Colors) */
+  --color-surface: #f8fafc;
+  --color-border: #e2e8f0;
+  
+  /* Тот самый исправленный цвет для текста (был #64748b, стал #475569 для контраста) */
+  --color-text-muted: #475569; 
+
+  /* Отступы (Spacing) */
+  --space-2: 8px;
+}

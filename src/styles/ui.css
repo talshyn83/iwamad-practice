@@ -1,0 +1,55 @@
+/* Кнопки */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2, 8px) var(--space-4, 16px);
+  border-radius: var(--radius-md, 8px);
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover, var(--color-primary));
+}
+
+.btn-secondary {
+  background-color: var(--color-surface, #f8fafc);
+  color: var(--color-text, #0f172a);
+  border-color: var(--color-border, #e2e8f0);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-border, #e2e8f0);
+}
+
+/* Карточка */
+.card {
+  background-color: var(--color-background, #ffffff);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--radius-md, 8px);
+  padding: var(--space-4, 16px);
+}
+
+/* Тег */
+.tag {
+  display: inline-block;
+  padding: 2px var(--space-2, 8px);
+  font-size: 0.875rem;
+  background-color: var(--color-surface, #f8fafc);
+  color: var(--color-text-muted, #64748b);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 9999px;
+}

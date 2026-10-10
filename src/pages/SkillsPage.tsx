@@ -1,5 +1,10 @@
-import SkillBadge from '../components/SkillBadge';
-import type { Skill } from '../components/SkillBadge';
+import { SkillBadge } from '../components/SkillBadge'
+
+type Skill = {
+  id: number;
+  label: string;
+  level: string;
+};
 
 const skills: Skill[] = [
   { id: 1, label: "HTML", level: "Intermediate" },
@@ -14,12 +19,10 @@ export default function SkillsPage() {
       <h2>My Skills</h2>
       <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
         {skills.map((skill) => (
-          <SkillBadge 
-            key={skill.id} 
-            skill={skill} 
-            isActive={false} 
-            onClick={() => {}} 
-          />
+          <SkillBadge
+            key={skill.id}
+            skill={skill.label}
+          /> 
         ))}
       </div>
     </div>
