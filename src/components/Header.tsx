@@ -18,6 +18,7 @@ function Header({ title, subtitle }: HeaderProps) {
       {/* Навигация с помощью NavLink */}
       <nav>
         <NavLink to="/">Главная</NavLink>
+        <NavLink to="/register">Register</NavLink>
       </nav>
 
       {/* Отображение количества лайков */}
