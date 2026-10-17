@@ -1,13 +1,7 @@
-type FooterProps = {
-  text: string;
-};
-
-function Footer({ text }: FooterProps) {
+export function Footer() {
   return (
     <footer className="footer">
-      <p>{text}</p>
+      <p>Footer Content</p>
     </footer>
   );
 }
-
-export default Footer;
