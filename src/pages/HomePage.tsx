@@ -1,11 +1,11 @@
-import { ProfileCard } from '../components/ProfileCard'
+import { ProfileCard } from '../components/ProfileCard';
+import { LikeButton } from '../components/LikeButton';
 
-export default function HomePage() {
+export function HomePage() {
   return (
-    <div className="page-container">
-      <ProfileCard 
-
-/>
-    </div>
+    <main>
+      <ProfileCard />
+      <LikeButton />
+    </main>
   );
 }

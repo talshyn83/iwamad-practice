@@ -13,7 +13,7 @@ const skills: Skill[] = [
   { id: 4, label: "Jupyter Notebook", level: "Intermediate" },
 ];
 
-export default function SkillsPage() {
+export function SkillsPage() {
   return (
     <div className="page-container">
       <h2>My Skills</h2>

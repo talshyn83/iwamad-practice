@@ -1,4 +1,4 @@
-export default function ContactPage() {
+export function ContactPage() {
   return (
     <div className="page-container">
       <h2>Связаться со мной</h2>

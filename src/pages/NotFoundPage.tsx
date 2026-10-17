@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 
-export default function NotFoundPage() {
+export function NotFoundPage() {
   return (
     <div style={{ textAlign: 'center', padding: '2rem' }}>
       <h2>404 - Page Not Found</h2>

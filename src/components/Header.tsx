@@ -1,32 +1,18 @@
 import { NavLink } from 'react-router-dom';
-import { useLikes } from '../context/LikesContext'; // проверьте путь к вашему LikesContext
+import { useLikes } from '../context/LikesContext';
 
-type HeaderProps = {
-  title: string;
-  subtitle?: string;
-};
-
-function Header({ title, subtitle }: HeaderProps) {
-  // Вызываем хук useLikes
-  const likesCount = useLikes(); // если хук возвращает объект, например { likes }, укажите: const { likes } = useLikes();
+export function Header() {
+  const { likes } = useLikes();
 
   return (
     <header className="header">
-      <h1>{title}</h1>
-      {subtitle && <p className="subtitle">{subtitle}</p>}
-
-      {/* Навигация с помощью NavLink */}
       <nav>
-        <NavLink to="/">Главная</NavLink>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/skills">Skills</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
         <NavLink to="/register">Register</NavLink>
       </nav>
-
-      {/* Отображение количества лайков */}
-      <div className="header-likes">
-        ❤️ {typeof likesCount === 'object' ? likesCount.likes : likesCount}
-      </div>
+      <div>Likes: {likes}</div>
     </header>
   );
 }
-
-export default Header;

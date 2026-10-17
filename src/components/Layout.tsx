@@ -1,7 +1,6 @@
 import { Outlet, NavLink } from 'react-router';
 import { useLikes } from '../context/LikesContext';
-
-export default function Layout() {
+export function Layout() {
   const { likes } = useLikes(); // Отображение счетчика в хедере
 
   return (
