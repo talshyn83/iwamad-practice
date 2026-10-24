@@ -1,11 +1,15 @@
+import { Card } from '../components/ui/Card';
+
 export function ContactPage() {
   return (
-    <div className="page-container">
-      <h2>Связаться со мной</h2>
-      <ul style={{ listStyleType: 'none', padding: 0, lineHeight: '2' }}>
-        <li><strong>Email:</strong> <a href="mailto:t_saparkhan@kbtu.kz" style={{ color: '#646cff' }}>t_saparkhan@kbtu.kz</a></li>
-        <li><strong>GitHub:</strong> <a href="https://github.com/talshyn83" style={{ color: '#646cff' }} target="_blank">github.com/talshyn83</a></li>
-      </ul>
-    </div>
+    <Card style={{ textAlign: 'center' }}>
+      <h1 style={{ marginBottom: '24px' }}>Contact Me</h1>
+      <p style={{ fontSize: '1.1rem', marginBottom: '16px' }}>
+        <strong>Email:</strong> <a href="mailto:t_saparkhan@kbtu.kz" style={{ color: '#0056b3' }}>t_saparkhan@kbtu.kz</a>
+      </p>
+      <p style={{ fontSize: '1.1rem' }}>
+        <strong>GitHub:</strong> <a href="https://github.com/talshyn83" style={{ color: '#0056b3' }}>github.com/talshyn83</a>
+      </p>
+    </Card>
   );
 }

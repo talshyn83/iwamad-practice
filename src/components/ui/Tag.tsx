@@ -1,14 +1,12 @@
-import React from 'react'
+type TagProps = { 
+  label: string | number; 
+  onClick?: () => void;
+};
 
-interface TagProps {
-  label: string
-  className?: string
-}
-
-export const Tag: React.FC<TagProps> = ({ label, className = '' }) => {
+export function Tag({ label, onClick }: TagProps) {
   return (
-    <span className={`tag ${className}`}>
+    <span className="tag" onClick={onClick}>
       {label}
     </span>
-  )
+  );
 }

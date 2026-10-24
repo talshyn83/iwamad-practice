@@ -1,120 +1,41 @@
-import { useState, type ChangeEvent, type FormEvent, type FocusEvent } from 'react';
-import {
-  type RegistrationValues,
-  validateRegistration,
-} from '../lib/validateRegistration';
-import { TextField } from '../components/ui/TextField';
-import { Button } from '../components/ui/Button';
-
-const initialValues: RegistrationValues = {
-  fullName: '',
-  email: '',
-  password: '',
-  confirmPassword: '',
-  acceptTerms: false,
-};
+import { Card } from '../components/ui/Card';
 
 export function RegisterPage() {
-  const [values, setValues] = useState<RegistrationValues>(initialValues);
-  const [touched, setTouched] = useState<Partial<Record<keyof RegistrationValues, boolean>>>({});
-  const [submitAttempted, setSubmitAttempted] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const errors = validateRegistration(values);
-
-  function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    const { name, type, value, checked } = event.target;
-    setValues((current) => ({
-      ...current,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
-  }
-
-  function handleBlur(event: FocusEvent<HTMLInputElement>) {
-    const { name } = event.target;
-    setTouched((current) => ({
-      ...current,
-      [name]: true,
-    }));
-  }
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitAttempted(true);
-
-    if (Object.keys(errors).length === 0) {
-      setIsSubmitted(true);
-    }
-  }
-
-  const getFieldError = (field: keyof RegistrationValues) => {
-    return touched[field] || submitAttempted ? errors[field] : undefined;
-  };
-
-  if (isSubmitted) {
-    return <p role="status">Thanks, {values.fullName}. You are registered.</p>;
-  }
-
   return (
-    <form onSubmit={handleSubmit} noValidate>
-      <TextField
-        label="Full name"
-        name="fullName"
-        type="text"
-        value={values.fullName}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        error={getFieldError('fullName')}
-      />
+    <Card>
+      <h1 style={{ textAlign: 'center', marginBottom: '24px', marginTop: 0 }}>Register</h1>
+      <form className="form-group" onSubmit={(e) => e.preventDefault()}>
+        
+        <div className="form-control">
+          <label>Full Name</label>
+          <input type="text" />
+        </div>
+        
+        <div className="form-control">
+          <label>Email</label>
+          <input type="email" />
+        </div>
+        
+        <div className="form-control">
+          <label>Password</label>
+          <input type="password" />
+        </div>
+        
+        <div className="form-control">
+          <label>Confirm Password</label>
+          <input type="password" />
+        </div>
+        
+        <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginTop: '8px' }}>
+          <input type="checkbox" id="terms" style={{ width: '18px', height: '18px' }} />
+          <label htmlFor="terms" style={{ fontSize: '0.9rem' }}>Accept terms and conditions</label>
+        </div>
+        
+        <button type="submit" className="btn" style={{ marginTop: '16px' }}>
+          Create account
+        </button>
 
-      <TextField
-        label="Email"
-        name="email"
-        type="email"
-        value={values.email}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        error={getFieldError('email')}
-      />
-
-      <TextField
-        label="Password"
-        name="password"
-        type="password"
-        value={values.password}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        error={getFieldError('password')}
-      />
-
-      <TextField
-        label="Confirm password"
-        name="confirmPassword"
-        type="password"
-        value={values.confirmPassword}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        error={getFieldError('confirmPassword')}
-      />
-
-      <div className="field">
-        <label className="check">
-          <input
-            type="checkbox"
-            name="acceptTerms"
-            checked={values.acceptTerms}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            aria-invalid={(touched.acceptTerms || submitAttempted) && errors.acceptTerms ? true : undefined}
-          />
-          Accept terms and conditions
-        </label>
-        {(touched.acceptTerms || submitAttempted) && errors.acceptTerms && (
-          <p className="field-error">{errors.acceptTerms}</p>
-        )}
-      </div>
-
-      <Button type="submit">Create account</Button>
-    </form>
+      </form>
+    </Card>
   );
 }

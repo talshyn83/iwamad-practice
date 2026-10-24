@@ -1,14 +1,15 @@
-import React, { type ReactNode } from 'react'
+import type { CSSProperties, ReactNode } from 'react';
 
-interface CardProps {
-  children: ReactNode
-  className?: string
-}
+type CardProps = {
+  children: ReactNode;
+  className?: string;
+  style?: CSSProperties; // Разрешаем передавать style
+};
 
-export const Card: React.FC<CardProps> = ({ children, className = '' }) => {
+export function Card({ children, className = '', style }: CardProps) {
   return (
-    <article className={`card ${className}`}>
+    <div className={`card ${className}`.trim()} style={style}>
       {children}
-    </article>
-  )
+    </div>
+  );
 }

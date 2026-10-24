@@ -1,19 +1,15 @@
 import { NavLink } from 'react-router-dom';
-import { useLikes } from '../context/LikesContext';
-import '../styles/ui.css'; // <--- Добавьте эту строчку, чтобы подтянуть стили
 
 export function Header() {
-  const { likes } = useLikes();
-
   return (
-    <header className="header" style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem', borderBottom: '1px solid #ccc' }}>
-      <nav style={{ display: 'flex', gap: '1rem' }}>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/skills">Skills</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
-        <NavLink to="/register">Register</NavLink>
+    <header className="header" style={{ borderBottom: '1px solid #ddd', padding: '16px 20px', display: 'flex', justifyContent: 'center' }}>
+      <nav style={{ display: 'flex', gap: '20px' }}>
+        <NavLink to="/" style={{ textDecoration: 'none', color: '#333' }}>Home</NavLink>
+        <NavLink to="/skills" style={{ textDecoration: 'none', color: '#333' }}>Skills</NavLink>
+        <NavLink to="/contact" style={{ textDecoration: 'none', color: '#333' }}>Contact</NavLink>
+        <NavLink to="/register" style={{ textDecoration: 'none', color: '#333' }}>Register</NavLink>
+        <NavLink to="/events" style={{ textDecoration: 'none', color: '#333', fontWeight: 'bold' }}>Events</NavLink>
       </nav>
-      <div>Likes: {likes}</div>
     </header>
   );
 }

@@ -1,30 +1,37 @@
-import { SkillBadge } from '../components/SkillBadge'
+import { useState } from 'react';
+import { Card } from '../components/ui/Card';
+import { Tag } from '../components/ui/Tag';
 
-type Skill = {
-  id: number;
-  label: string;
-  level: string;
-};
-
-const skills: Skill[] = [
-  { id: 1, label: "HTML", level: "Intermediate" },
-  { id: 2, label: "Python", level: "Intermediate" },
-  { id: 3, label: "AWS", level: "Intermediate" },
-  { id: 4, label: "Jupyter Notebook", level: "Intermediate" },
+const mySkills = [
+  { name: 'HTML', level: 'Advanced' },
+  { name: 'CSS', level: 'Advanced' },
+  { name: 'React', level: 'Intermediate' },
+  { name: 'Python', level: 'Intermediate' },
+  { name: 'AWS', level: 'Beginner' }
 ];
 
 export function SkillsPage() {
+  const [activeLevel, setActiveLevel] = useState<string | null>(null);
+
   return (
-    <div className="page-container">
-      <h2>My Skills</h2>
-      <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-        {skills.map((skill) => (
-          <SkillBadge
-            key={skill.id}
-            skill={skill.label}
-          /> 
+    <Card style={{ textAlign: 'center', maxWidth: '600px' }}>
+      <h1 style={{ marginBottom: '24px' }}>My Skills</h1>
+      
+      <div style={{ marginBottom: '24px' }}>
+        {mySkills.map((skill) => (
+          <Tag 
+            key={skill.name} 
+            label={skill.name} 
+            onClick={() => setActiveLevel(`${skill.name} level: ${skill.level}`)} 
+          />
         ))}
       </div>
-    </div>
+
+      {activeLevel && (
+        <p style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#0f172a', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
+          {activeLevel}
+        </p>
+      )}
+    </Card>
   );
 }
